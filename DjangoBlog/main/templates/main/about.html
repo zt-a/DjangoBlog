@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}О нас{% endblock %}
+
+{% block content %}
+  <h1>О нас</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem eum libero maxime pariatur rem?.</p>
+  <p> Accusamus atque laboriosam nobis. Blanditiis doloribus iusto minima perferendis! Alias asperiores eaque ipsam, itaque nobis quod</p>
+
+  <div class="socialNetwork">
+        <ul class="icons">
+            <li><a href="https://wa.me/+996701500422"><img src="{% static 'main/img/icons/WhatsApp.png' %}" alt="WhatsAppContact" width="40px"></a></li>
+            <li><a href="https://github.com/zt-a/"><img src="{% static 'main/img/icons/github2.png' %}" alt="Github" width="40px"></a></li>
+            <li><a href="mailto: zt20061113@gmail.com"><img src="{% static 'main/img/icons/Gmail2.png' %}" alt="Gmail" width="40px"></a></li>
+            <li><a href="https://instagram.com/_.zhyrgal._"><img src="{% static 'main/img/icons/Instagram.png' %}" alt="Instagram" width="40px"></a></li>
+            <li><a href="https://t.me/zhyrgal_tg"><img src="{% static 'main/img/icons/Telegram.png' %}" alt="Telegram" width="40px"></a></li>
+            <li><a href="https://www.facebook.com/zhyrgal.tagaibekov/"><img src="{% static 'main/img/icons/Facebook2.png' %}" alt="Facebook" width="40px"></a></li>
+            <li><a href="https://youtube.com/@IT_science"><img src="{% static 'main/img/icons/youtube.png' %}" alt="Youtube" width="40px"></a></li>
+        </ul>
+    </div>
+
+{% endblock %}

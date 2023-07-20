@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Posts by Tag: {{ tag.name }}{% endblock %}
+
+{% block content %}
+  <h1>Posts by Tag: {{ tag.name }}</h1>
+  
+  {% if blogs %}
+    <ul>
+      {% for blog in blogs %}
+        <li><a href="tags/{{ blog.slug }}">{{ blog.title }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No posts found for this tag.</p>
+  {% endif %}
+{% endblock %}

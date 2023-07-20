@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Результаты поиска{% endblock %}
+
+{% block content %}
+  <h1>Результаты поиска</h1>
+
+  <form method="GET" action="{% url 'search' %}">
+    <div class="form-errors">{{ form.non_field_errors }}</div>
+
+        {% for f in form %}
+        <p class="form-input-p"><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label> {{ f }} </p>
+        <div class="form-text text-muted">{{ f.errors }}</div>
+        <br>
+        {% endfor %}
+    <button type="submit" class="btn btn-primary">Искать</button>
+  </form>
+<br>
+  {% if results %}
+    <h2>Результаты:</h2>
+    <div class="row">
+    <ul class="col-md-4 products">
+      {% for result in results %}
+      <li class="card mb-4 product">
+        <div class="card-body">
+          <h5 class="card-title">{{ result.title }}</h5>
+          <p class="card-text">{{ result.content }}</p>
+          <a href="/blogs/{{ result.slug }}" class="btn btn-primary">Подробнее</a>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    <!-- Добавьте дополнительные карточки для других продуктов -->
+  </div>
+  {% else %}
+    <p>Ничего не найдено.</p>
+  {% endif %}
+{% endblock %}

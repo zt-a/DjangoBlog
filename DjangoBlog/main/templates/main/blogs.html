@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Blogs{% endblock %}
+
+{% block content %}
+  <h1>Blogs</h1>
+  <ul class="blogs_index">
+    <li class="blog_index">
+      <span class="blog_title">Заголовок</span>
+      <span class="blog_author">Автор</span>
+      <span class="blog_categories">Категории</span>
+      <span class="blog_tags">Теги</span>
+      <span class="blog_time">Время создание</span>
+      <span class="blog_content">Контент</span>
+      <span class="blog_link">Ссыллка</span>
+    </li>
+  {% for blog in blogs.reverse %}
+    <li class="blog_index">
+      <span class="blog_title">{{ blog.title|slice:":18" }}</span>
+      <span class="blog_author">{{ blog.author|slice:":18" }}</span>
+      <span class="blog_categories">
+        {% if blog.categories %}
+        {{ blog.categories }}
+        {% endif %}
+      </span>
+      {% for tag in blog.tags.all %}
+        <span class="blog_tags">{{ tag.name }}</span>
+      {% empty %}
+      <span></span>
+      {% endfor %}
+      <span class="blog_time">{{ blog.time_create|slice:":18" }}</span>
+      <span class="blog_content">{{ blog.content|slice:":20" }}</span>
+      <span class="blog_link"><a href="blogs/{{ blog.slug }}">Перейти</a></span>
+    </li>
+  {% empty %}
+    <li>No blogs found.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

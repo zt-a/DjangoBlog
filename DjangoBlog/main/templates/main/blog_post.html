@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ blog.title }}{% endblock %}
+
+{% block content %}
+  <h1>{{ blog.title }}</h1>
+  <p>Автор: {{ blog.author.username }}</p>
+  <p>Категории: {{ blog.categories }}</p>
+  <p>Теги:
+    {% for tag in blog.tags.all %}
+      <span>{{ tag.name }}</span>
+    {% empty %}
+      No tags found.
+    {% endfor %}
+  </p>
+  <p>{{ blog.content }}</p>
+{% endblock %}
